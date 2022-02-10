@@ -22,7 +22,23 @@ If everything works you should be able to activate the Python environment by ent
 
 ## Development
 
-- activate python environment: `source .venv/bin/activate`
+- Mac/Linux: activate python environment: `source .venv/bin/activate`
+- Windows: activate python environment: `.\.venv\Scripts\Activate.ps1`
 - run python script: `python <srcfilename.py> `, e.g. `python train.py`
 - install new dependency: `pip install scikit-learn`
 - save current installed dependencies back to requirements.txt: `pip freeze > requirements.txt`
+
+## Troubleshooting
+
+If something with your python version is not working, you might need to change the first line in `setup.sh` or `setup.ps1`
+from
+
+```
+python3 -m venv .venv
+```
+
+to
+
+```
+python -m venv .venv
+```
