@@ -8,37 +8,25 @@ The `.vscode` directory contains configurations for useful extensions like [GitL
 
 ## Development Setup
 
-Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) and run the setup script for your OS. This will install a [Python virtual environment](https://docs.python.org/3/library/venv.html) with all packages specified in `requirements.txt`.
-
-If everything works you should be able to activate the Python environment by entering `source .venv/bin/activate` in the terminal. The command `python src/hello.py` will print the text "hello world" to your terminal.
+Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) and run the setup script for your OS (see below). This will install a [Python virtual environment](https://docs.python.org/3/library/venv.html) with all packages specified in `requirements.txt`.
 
 ### Linux and Mac Users
 
-- run the setup script `./setup.sh` or `sh setup.sh`
+1. run the setup script: `./setup.sh` or `sh setup.sh`
+2. activate the python environment: `source .venv/bin/activate`
+3. run example code: `python src/hello.py`
+4. install new dependency: `pip install sklearn`
+5. save current installed dependencies back to requirements.txt: `pip freeze > requirements.txt`
 
 ### Windows Users
 
-- run the setup script `.\setup.ps1`
+1. run the setup script `.\setup.ps1`
+2. activate the python environment: `.\.venv\Scripts\Activate.ps1`
+3. run example code: `python src/hello.py`
+4. install new dependency: `pip install sklearn`
+5. save current installed dependencies back to requirements.txt: `pip freeze > requirements.txt`
 
-## Development
+Troubleshooting:
 
-- Mac/Linux: activate python environment: `source .venv/bin/activate`
-- Windows: activate python environment: `.\.venv\Scripts\Activate.ps1`
-- run python script: `python <srcfilename.py> `, e.g. `python train.py`
-- install new dependency: `pip install scikit-learn`
-- save current installed dependencies back to requirements.txt: `pip freeze > requirements.txt`
-
-## Troubleshooting
-
-If something with your python version is not working, you might need to change the first line in `setup.sh` or `setup.ps1`
-from
-
-```
-python3 -m venv .venv
-```
-
-to
-
-```
-python -m venv .venv
-```
+- If your system does not allow to run powershell scripts, try to set the execution policy: `Set-ExecutionPolicy RemoteSigned`
+- If you still cannot run the setup.ps1 script, open it and copy all the commands step by step in your terminal and execute each step
