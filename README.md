@@ -34,5 +34,5 @@ Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integra
 
 Troubleshooting:
 
-- If your system does not allow to run powershell scripts, try to set the execution policy: `Set-ExecutionPolicy RemoteSigned`
+- If your system does not allow to run powershell scripts, try to set the execution policy: `Set-ExecutionPolicy RemoteSigned`, see https://www.stanleyulili.com/powershell/solution-to-running-scripts-is-disabled-on-this-system-error-on-powershell/
 - If you still cannot run the setup.ps1 script, open it and copy all the commands step by step in your terminal and execute each step
