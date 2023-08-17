@@ -27,8 +27,18 @@ model = LinearRegression()
 model.fit(X_scaled,y)
 
 # save the model to disk
-model_path = 'data/models/model.pkl'
-with open(model_path, 'wb') as model_file:
-    pickle.dump(model, model_file)
+# Create a dictionary to hold the objects
+saved_objects = {
+    'model': model,
+    'X': X,
+    'y': y,
+    'data': data,
+    'X_scaled': X_scaled}
+
+# Save the dictionary with all objects to a file using pickle in the 'data/models' folder
+saved_objects_path = 'data/models/saved_objects.pkl'
+with open(saved_objects_path, 'wb') as objects_file:
+    pickle.dump(saved_objects, objects_file)
+
 
 
