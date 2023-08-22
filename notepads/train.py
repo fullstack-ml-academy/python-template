@@ -35,6 +35,8 @@ saved_objects = {
     'data': data,
     'X_scaled': X_scaled}
 
+
+
 # Save the dictionary with all objects to a file using pickle in the 'data/models' folder
 saved_objects_path = 'data/models/saved_objects.pkl'
 with open(saved_objects_path, 'wb') as objects_file:
