@@ -13,7 +13,7 @@ jobs:
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: Train model
-        run: python notepads/train.py
+        run: python src/train.py
       - name: upload trained model
         uses: actions/upload-artifact@v3
         with:
