@@ -25,9 +25,9 @@ api_key = "58151a9aa5fc88d5f418535e2a1523ce"
 city = "Muenchen"
 lat = 48.1525736
 lon = 11.5632592
-weather_url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&&appid="+ api_key
+#weather_url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&&appid="+ api_key
 weather_api = "https://api.openweathermap.org/data/2.5/forecast?lat="+ str(lat) +"&lon=" + str(lon) +"&units=metric&appid=" + api_key
-desired_hour = 14  # For example, 2 PM
+desired_hour = 14
 
 wetter = requests.get(weather_api)
 #print("wetter", wetter.content)
@@ -40,7 +40,6 @@ datum = []
 temperatur = []
 
 for entry in data['list']:
-
     dt_timestamp = entry['dt']
     timestamp_datetime = datetime.datetime.fromtimestamp(dt_timestamp)
     european_datetime = timestamp_datetime.strftime('%d-%m-%Y %H:%M:%S')
@@ -59,6 +58,7 @@ wetterdaten_df = pd.DataFrame({
 print(wetterdaten_df)
 
 
+
 '''forecast for a certain day'''
 print("Aufgabe 1.3")
 # Define the desired date for filtering
@@ -66,20 +66,25 @@ desired_date = '2023-08-26'  # Replace with your desired date
 
 # Convert the desired date to a datetime object
 desired_datetime = datetime.datetime.strptime(desired_date, '%Y-%m-%d')
+forecast = []
+
+
+
+datum_A=[]
+temperatur_A=[]
 
 # Filter and print data for the desired date
 for entry in data['list']:
     dt_timestamp = entry['dt']
     timestamp_datetime = datetime.datetime.fromtimestamp(dt_timestamp)
 
-datum_A=[]
-temperatur_A=[]
-
-if timestamp_datetime.date() == desired_datetime.date():
-    datum_A.append(european_datetime)
-    temperatur_A.append(entry['main']['temp'])
-    wetter_bestimmter_Tag = pd.DataFrame[{
-        'datum_A': datum_A,
-        'temperatur_A': temperatur_A
-        }]
-    print(wetter_bestimmter_Tag)
+    if timestamp_datetime.date() == desired_datetime.date():
+        datum_A.append(timestamp_datetime)
+        temperatur_A.append(entry['main']['temp'])
+        wetter_bestimmter_Tag = pd.DataFrame({
+           'datum_A': datum_A,
+           'temperatur_A': temperatur_A
+           })
+print(wetter_bestimmter_Tag)
+#print(datum_A)
+#print(temperatur_A)
