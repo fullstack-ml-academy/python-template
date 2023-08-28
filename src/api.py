@@ -19,7 +19,7 @@ X_test_scaled = loaded_objects['X_test_scaled']
 training_data_df = pd.read_csv("data/auto-mpg.csv", sep=';', skipinitialspace=True)
 #print(training_data_df.head)
 
-print("shape trainings data", training_data_df.shape)
+#print("shape trainings data", training_data_df.shape)
 
 #start application
 app = Flask(__name__)
@@ -48,7 +48,8 @@ def predict():
 
     #make prediction
     prediction = model.predict([zylinder, ps, gewicht, beschleunigung, baujahr])
-    return {'predicted miles per gallon:': int(prediction.item())}
+    prediction_reshape = prediction.reshape(-1,1)
+    return {'predicted miles per gallon:': int(prediction_reshape.item())}
 
 # cwd = os.getcwd()  # Aktuelles Arbeitsverzeichnis abrufen
 # print("Current Working Directory:", cwd)
