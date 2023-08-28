@@ -11,12 +11,14 @@ import os
 
 data = pd.read_csv("data/auto-mpg.csv", sep=';', skipinitialspace=True)
 data.dtypes
-print("data dtype", data.dtypes)
+print("data dtype")
+print(data.dtypes)
 
 # Display the first few rows of the DataFrame
+print("head")
 print(data.head())
-print(data.shape())
-print(type(data))
+print("shape", data.shape)
+print("type", type(data))
 
 y = data.loc[:,'mpg']
 X = data.drop('mpg',axis=1)
