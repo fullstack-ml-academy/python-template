@@ -1,5 +1,3 @@
-'''example git hub action'''
-
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
