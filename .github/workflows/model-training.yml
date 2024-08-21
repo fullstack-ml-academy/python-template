@@ -28,10 +28,10 @@ jobs:
 
       - name: Train model
         run: |
-          python /data/models/baummethoden_lr.pickle
+          python src/train.py
 
       - name: Upload model artifact
         uses: actions/upload-artifact@v3
         with:
           name: model
-          path: ./model.pkl
+          path: ./data/models/baummethoden_lr.pickle
