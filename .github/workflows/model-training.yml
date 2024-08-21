@@ -1,6 +1,10 @@
 name: Model Training
 
 on:
+  push:
+    branches:
+      - main
+      - DIG-702
   pull_request:
     types: [opened, synchronize]
 
@@ -15,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: "3.9"
 
       - name: Install dependencies
         run: |
