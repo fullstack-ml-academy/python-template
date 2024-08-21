@@ -28,7 +28,7 @@ jobs:
 
       - name: Train model
         run: |
-          python /Users/tommygrace/Desktop/Code/python-template/data/models/baummethoden_lr.pickle
+          python /data/models/baummethoden_lr.pickle
 
       - name: Upload model artifact
         uses: actions/upload-artifact@v3
