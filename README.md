@@ -23,18 +23,55 @@ This project is a machine learning application that predicts the miles per gallo
    python src/test_predict.py
    ```
 
+## Part 2: Flask API Development
+
+This project is a continuation of the Auto MPG Predictor, focusing on creating a RESTful Flask API to serve predictions and other data. This part of the project includes the implementation of several endpoints to interact with the model and retrieve relevant data.
+
+### Features
+
+- **RESTful API Endpoints**:
+
+  - `GET /`: Returns a JSON response with a simple greeting.
+  - `GET /hello_world`: Returns a simple HTML page with "Hello, World!".
+  - `GET /training_data`: Returns an array of training data in JSON format.
+
+- **Frameworks and Tools**:
+  - Flask: A lightweight WSGI web application framework.
+  - Flask-CORS: A Flask extension for handling Cross-Origin Resource Sharing (CORS), making it easier to build a front-end that interacts with the API.
+
+### How to Run
+
+1. **Install Dependencies**:
+   Make sure you have Python 3.x installed. Install the required packages using pip:
+
+   ```bash
+   pip install flask flask-cors
+   ```
+
+2. **Run the Flask Application**:
+
+   ```bash
+   python wsgi.py
+   ```
+
+   The application will start on `http://127.0.0.1:5000/`.
+
+3. **Test the Endpoints**:
+   - Visit `http://127.0.0.1:5000/` to see the JSON response: `{"hello": "world"}`.
+   - Visit `http://127.0.0.1:5000/hello_world` to see the HTML response: `<p>Hello, World!</p>`.
+   - Visit `http://127.0.0.1:5000/training_data` to see the array of training data in JSON format.
+
 ### Next Steps
 
-This project is part of a larger learning journey. The upcoming phases will include:
+The next steps in the project include:
 
-1. **API Development**: Creating a RESTful API to serve predictions.
-2. **Frontend Development**: Building a user-friendly web interface to interact with the model.
-
-Stay tuned for updates as we continue to expand this project!
+1. **Prediction Endpoint**: Implementing a new endpoint to handle predictions based on user input.
+2. **Model Integration**: Integrating the trained machine learning model into the API to provide real-time predictions.
+3. **Frontend Development**: Developing a web interface to interact with the API, allowing users to make predictions directly from the browser.
 
 ### Contributing
 
-This is a learning project, but suggestions and improvements are welcome. Please open an issue or submit a pull request if you have any ideas to enhance this project.
+Suggestions and improvements are always welcome. If you have any ideas to enhance this project, feel free to open an issue or submit a pull request.
 
 ### License
 
