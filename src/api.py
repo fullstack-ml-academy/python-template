@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -12,7 +13,12 @@ def hello_world():
 
 @app.route('/training_data')
 def training_data():
-    training_data = [1, 2, 3, 4, 5]  # Beispiel-Daten
+    # CSV-Datei einlesen
+    data = pd.read_csv("./data/auto-mpg.csv", sep=";")
+
+    # Daten in ein Dictionary umwandeln
+    training_data = data.to_dict(orient='records')
+
     return jsonify(training_data)
 
 @app.route('/predict')
