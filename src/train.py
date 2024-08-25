@@ -4,7 +4,7 @@ from sklearn.linear_model import LinearRegression
 import pickle
 
 # Read csv-file
-data = pd.read_csv("/Users/tommygrace/Desktop/Code/python-template/data/auto-mpg.csv", sep=";")
+data = pd.read_csv("./data/auto-mpg.csv", sep=";")
 
 print(data)
 
