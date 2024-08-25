@@ -1,16 +1,6 @@
 name: Model Training
 
-<<<<<<< HEAD
 on: [push]
-=======
-on:
-  push:
-    branches:
-      - main
-      - DIG-702
-  pull_request:
-    types: [opened, synchronize]
->>>>>>> DIG-702
 
 jobs:
   train-model:
@@ -32,19 +22,10 @@ jobs:
 
       - name: Train model
         run: |
-<<<<<<< HEAD
           python train_model.py
-=======
-          python src/train.py
->>>>>>> DIG-702
 
       - name: Upload model artifact
         uses: actions/upload-artifact@v3
         with:
-<<<<<<< HEAD
           name: data/models/baummethoden_lr.pickle
           path: /Users/tommygrace/Desktop/Code/python-template/data/models/baummethoden_lr.pickle
-=======
-          name: model
-          path: ./data/models/baummethoden_lr.pickle
->>>>>>> DIG-702

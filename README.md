@@ -1,38 +1,41 @@
-# python-template
+# Auto MPG Predictor
 
-Precondition:
-Windows users can follow the official microsoft tutorial to install python, git and vscode here:
+## Part 1: Model Training and Testing
 
-- ​​https://docs.microsoft.com/en-us/windows/python/beginners
-- german: https://docs.microsoft.com/de-de/windows/python/beginners
+This project is a machine learning application that predicts the miles per gallon (MPG) for automobiles based on various features. It's developed as a learning exercise and currently consists of two main parts: model training and model testing.
 
-## Visual Studio Code
+### Features
 
-This repository is optimized for [Visual Studio Code](https://code.visualstudio.com/) which is a great code editor for many languages like Python and Javascript. The [introduction videos](https://code.visualstudio.com/docs/getstarted/introvideos) explain how to work with VS Code. The [Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial) provides an introduction about common topics like code editing, linting, debugging and testing in Python. There is also a section about [Python virtual environments](https://code.visualstudio.com/docs/python/environments) which you will need in development. There is also a [Data Science](https://code.visualstudio.com/docs/datascience/overview) section showing how to work with Jupyter Notebooks and common Machine Learning libraries.
+- Data loading and preprocessing
+- Model training using Linear Regression
+- Model serialization and deserialization
+- Comprehensive unit tests for the prediction functionality
 
-The `.vscode` directory contains configurations for useful extensions like [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens0) and [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python). When opening the repository, VS Code will open a prompt to install the recommended extensions.
+### How to Run
 
-## Development Setup
+1. Ensure you have Python 3.x installed along with the required libraries (pandas, scikit-learn).
+2. To train the model:
+   ```
+   python src/train.py
+   ```
+3. To run the tests:
+   ```
+   python src/test_predict.py
+   ```
 
-Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) and run the setup script for your OS (see below). This will install a [Python virtual environment](https://docs.python.org/3/library/venv.html) with all packages specified in `requirements.txt`.
+### Next Steps
 
-### Linux and Mac Users
+This project is part of a larger learning journey. The upcoming phases will include:
 
-1. run the setup script: `./setup.sh` or `sh setup.sh`
-2. activate the python environment: `source .venv/bin/activate`
-3. run example code: `python src/hello.py`
-4. install new dependency: `pip install sklearn`
-5. save current installed dependencies back to requirements.txt: `pip freeze > requirements.txt`
+1. **API Development**: Creating a RESTful API to serve predictions.
+2. **Frontend Development**: Building a user-friendly web interface to interact with the model.
 
-### Windows Users
+Stay tuned for updates as we continue to expand this project!
 
-1. run the setup script `.\setup.ps1`
-2. activate the python environment: `.\.venv\Scripts\Activate.ps1`
-3. run example code: `python src/hello.py`
-4. install new dependency: `pip install sklearn`
-5. save current installed dependencies back to requirements.txt: `pip freeze > requirements.txt`
+### Contributing
 
-Troubleshooting:
+This is a learning project, but suggestions and improvements are welcome. Please open an issue or submit a pull request if you have any ideas to enhance this project.
 
-- If your system does not allow to run powershell scripts, try to set the execution policy: `Set-ExecutionPolicy RemoteSigned`, see https://www.stanleyulili.com/powershell/solution-to-running-scripts-is-disabled-on-this-system-error-on-powershell/
-- If you still cannot run the setup.ps1 script, open it and copy all the commands step by step in your terminal and execute each step
+### License
+
+[MIT License](https://opensource.org/licenses/MIT)
