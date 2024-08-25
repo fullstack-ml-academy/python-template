@@ -61,17 +61,49 @@ This project is a continuation of the Auto MPG Predictor, focusing on creating a
    - Visit `http://127.0.0.1:5000/hello_world` to see the HTML response: `<p>Hello, World!</p>`.
    - Visit `http://127.0.0.1:5000/training_data` to see the array of training data in JSON format.
 
-### Next Steps
+## Part 3: Flask API with Prediction Endpoint
 
-The next steps in the project include:
+This project is a continuation of the Auto MPG Predictor, where we have now extended the Flask API to include a prediction endpoint. This endpoint allows users to input various car features and receive a predicted Miles Per Gallon (MPG) value.
 
-1. **Prediction Endpoint**: Implementing a new endpoint to handle predictions based on user input.
-2. **Model Integration**: Integrating the trained machine learning model into the API to provide real-time predictions.
-3. **Frontend Development**: Developing a web interface to interact with the API, allowing users to make predictions directly from the browser.
+### Features
 
-### Contributing
+- **RESTful API Endpoints**:
 
-Suggestions and improvements are always welcome. If you have any ideas to enhance this project, feel free to open an issue or submit a pull request.
+  - `GET /`: Returns a JSON response with a simple greeting.
+  - `GET /hello_world`: Returns a simple HTML page with "Hello, World!".
+  - `GET /training_data`: Returns an array of training data in JSON format.
+  - `GET /predict`: Returns a predicted MPG value based on the provided car features.
+
+- **Prediction Model**:
+  - The prediction endpoint `/predict` uses a pre-trained machine learning model (`baummethoden_lr.pickle`) to predict the MPG based on the following parameters:
+    - `zylinder`: Number of cylinders in the car's engine.
+    - `ps`: Horsepower (engine power).
+    - `gewicht`: Car's weight in pounds.
+    - `beschleunigung`: Time taken to accelerate from 0 to 60 mph in seconds.
+    - `baujahr`: Year of manufacture.
+
+### How to Run
+
+1. **Install Dependencies**:
+   Make sure you have Python 3.x installed. Install the required packages using pip:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Run the Flask Application**:
+
+   ```bash
+   python wsgi.py
+   ```
+
+   The application will start on `http://127.0.0.1:5000/`.
+
+3. **Test the Endpoints**:
+   - Visit `http://127.0.0.1:5000/` to see the JSON response: `{"hello": "world"}`.
+   - Visit `http://127.0.0.1:5000/hello_world` to see the HTML response: `<p>Hello, World!</p>`.
+   - Visit `http://127.0.0.1:5000/training_data` to see the array of training data in JSON format.
+   - Use `http://127.0.0.1:5000/predict?zylinder=6&ps=133&gewicht=3410&beschleunigung=15.8&baujahr=78` to test the prediction endpoint. Replace the parameters with actual values to get a custom prediction.
 
 ### License
 
