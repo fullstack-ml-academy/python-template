@@ -33,14 +33,18 @@ def predict():
     beschleunigung = request.args.get('beschleunigung', type=float)
     baujahr = request.args.get('baujahr', type=int)
 
-    # Umwandlung der Parameter in das Format, das das Modell erwartet
-    input_features = np.array([[zylinder, ps, gewicht, beschleunigung, baujahr]])
+    # Umwandlung der Parameter in ein DataFrame mit denselben Spaltennamen wie beim Training
+    import pandas as pd
+    input_features = pd.DataFrame({
+        'zylinder': [zylinder],
+        'ps': [ps],
+        'gewicht': [gewicht],
+        'beschleunigung': [beschleunigung],
+        'baujahr': [baujahr]
+    })
 
     # Vorhersage mit dem geladenen Modell
     mpg_prediction = model.predict(input_features)[0]
 
     # Rückgabe der Vorhersage als JSON
     return jsonify({"predicted_mpg": mpg_prediction})
-
-if __name__ == "__main__":
-    app.run(debug=True)
