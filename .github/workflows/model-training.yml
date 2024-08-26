@@ -27,5 +27,5 @@ jobs:
       - name: Upload model artifact
         uses: actions/upload-artifact@v3
         with:
-          name: data/models/baummethoden_lr.pickle
-          path: /Users/tommygrace/Desktop/Code/python-template/data/models/baummethoden_lr.pickle
+          name: baummethoden_lr.pickle
+          path: data/models/baummethoden_lr.pickle
