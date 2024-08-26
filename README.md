@@ -15,11 +15,11 @@ This project is a machine learning application that predicts the miles per gallo
 
 1. Ensure you have Python 3.x installed along with the required libraries (pandas, scikit-learn).
 2. To train the model:
-   ```
+   ```bash
    python src/train.py
    ```
 3. To run the tests:
-   ```
+   ```bash
    python src/test_predict.py
    ```
 
