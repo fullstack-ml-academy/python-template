@@ -32,3 +32,7 @@ with open("data/models/baummethoden_lr.pickle", "wb") as file_to_write:
 
 # Ausgabe der verwendeten Merkmale
 print("Verwendete Merkmale:", x_variables.columns.tolist())
+
+# Fügen Sie diese Zeile hinzu, um die Koeffizienten und ihre zugehörigen Feature-Namen auszugeben
+for feature, coef in zip(x_variables.columns, regressor.coef_):
+    print(f"{feature}: {coef}")
