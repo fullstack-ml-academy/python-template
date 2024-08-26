@@ -1,0 +1,56 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Switch to heroku branch
+        shell: bash
+        run: |
+          git config --global user.email ""
+          git config --global user.name "GitHub Actions"
+          git fetch --all --unshallow
+          git checkout heroku 2>/dev/null || git checkout -b heroku
+          git merge main -X theirs --allow-unrelated-histories
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Train model
+        run: python train.py
+
+      - name: Upload trained model
+        uses: actions/upload-artifact@v2
+        with:
+          name: baummethoden.pickle
+          path: models/baummethoden.pickle
+
+      - name: Push changes to heroku branch
+        shell: bash
+        run: |
+          git add .
+          git add --force models/baummethoden.pickle
+          git commit -m "[CI] update trained model" || echo "No changes to commit"
+          git push --set-upstream origin heroku
+
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          branch: "heroku"
