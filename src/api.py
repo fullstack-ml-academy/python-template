@@ -5,7 +5,7 @@ import pickle
 import joblib
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://auto-mpg-predictor.vercel.app"}})
+CORS(app, resources={r"/*": {"origins": "https://ml-auto-predictor-frontend.vercel.app"}})
 
 # Modell laden
 model = joblib.load('data/models/baummethoden_lr.pickle')
