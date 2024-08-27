@@ -108,3 +108,5 @@ This project is a continuation of the Auto MPG Predictor, where we have now exte
 ### License
 
 [MIT License](https://opensource.org/licenses/MIT) - 2024
+
+Credits to Digethic for the project idea and guidance.
