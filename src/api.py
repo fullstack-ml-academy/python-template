@@ -5,7 +5,7 @@ import pickle
 import joblib
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://auto-mpg-predictor.vercel.app"}})
 
 
 # Modell laden
