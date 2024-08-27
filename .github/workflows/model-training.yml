@@ -1,0 +1,36 @@
+name: Model Training
+
+on: [push]
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Repository Checkout
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # 2. Python Setup
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    # 3. Python Dependency Installation
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # 4. Model Training
+    - name: Train the model
+      run: python src/train.py
+
+    # 5. Speichern des Modells als GitHub Artifact
+    - name: Upload model artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: trained-model
+        path: data/models/linear_regression_model.pkl
+
