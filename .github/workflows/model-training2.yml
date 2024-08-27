@@ -1,0 +1,29 @@
+name: model-training
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  model-training:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        name: Setup Python
+        with:
+          python-version: "3.9"
+
+      - run: pip install -r requirements.txt
+        name: Install Requirements
+
+      - run: pytest
+        name: Run Tests
+
+      - run: python src/train2.py
+        name: Train Model
+
+      - uses: actions/upload-artifact@v2
+        name: Upload Model
+        with:
+          name: trained-model
+          path: data/models/linear_regression_model.pkl
