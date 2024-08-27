@@ -6,8 +6,6 @@ import pickle
 # CSV-Datei einlesen
 data = pd.read_csv("./data/auto-mpg.csv", sep=";")
 
-print(data.columns)  # Ausgabe der Spaltennamen zur Überprüfung
-
 # Daten mischen
 data = data.sample(frac=1, random_state=42)
 

@@ -4,5 +4,4 @@
 __pycache__/
 .env
 *.key
-NEXT_PUBLIC_PREDICTION_API=https://ml-mpg-redictor.herokuapp.com
 
