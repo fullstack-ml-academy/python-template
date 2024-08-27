@@ -1,4 +1,4 @@
-# Auto MPG Predictor
+git checkout main# Auto MPG Predictor
 
 ## Part 1: Model Training and Testing
 

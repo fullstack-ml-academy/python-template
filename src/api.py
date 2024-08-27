@@ -5,7 +5,7 @@ import pickle
 import joblib
 
 app = Flask(__name__)
-#CORS(app)
+CORS(app)
 
 
 # Modell laden
